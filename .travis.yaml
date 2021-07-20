@@ -1,0 +1,11 @@
+language: generic
+sudo: required
+
+services: 
+  - docker
+
+before-install: 
+  - docker build -t shashank0490/react-nginx -f Dockerfile.dev .
+
+script: 
+  - docker run -e CI=true shashank0490/react-nginx npm run test
